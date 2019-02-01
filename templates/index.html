@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<html>
+    <header class="container">
+            <h1>Sogeti India CoE</h1>
+            <hr>
+    </header>
+   
+
+    <body class="container">
+        <form class="form-signin"  role="form">
+            <label>Call api/train</label> <button id="btnTrain" type="button" class="btn btn-success">Train</button>
+            <br>
+            <label id="lblTrain"></label>
+            <br>
+            <br>
+            <label>Call api/recognize</label> <button id="btnRec" type="button" class="btn btn-success">Recognize</button>
+            <label id="lblRec"></label>
+        </form> 
+    </body>
+</html>
+
+<script>
+    $("#btnTrain").click(function(){
+        $.ajax({
+            type: "POST",
+            cache: false,
+            data: JSON.stringify({filename:"./trainimages/vaira.jpg", identityname: "Vaira"}),
+            url: "/train",
+            contentType: "application/json; charset=utf-8",
+            success: function(data) { 
+                $("#lblTrain").text(data);          
+            },
+            error: function(jqXHR) {
+                alert("error: " + jqXHR.status);
+            }
+        })
+    })
+
+    $("#btnRec").click(function(){
+        $.ajax({
+            type: "POST",
+            cache: false,
+            data: JSON.stringify({filename:"vaira.jpg"}),
+            url: "/recognize",
+            contentType: "application/json; charset=utf-8",
+            success: function(data) { 
+                $("#lblRec").text(data);                   
+            },
+            error: function(jqXHR) {
+                alert("error: " + jqXHR.status);
+            }
+        })
+    });
+</script>
