@@ -5,3 +5,4 @@ Jinja2==2.10
 MarkupSafe==1.0
 Werkzeug==0.14.1
 face_recognition
+opencv-python==4.0.0.21
