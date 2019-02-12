@@ -16,7 +16,7 @@ def hello():
 def train():
     data = json.loads(request.data)
     register.register_local_image(data['filename'], data['identityname'])
-    return json.dumps({'status':'Successfully Registered...'})
+    return json.dumps({'status': data['identityname'] + ' - Successfully Registered...'})
 
     
 @app.route("/recognize", methods = ['POST'])
