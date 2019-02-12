@@ -15,6 +15,7 @@ RUN apt-get update \
         git \
         cmake \
         build-essential \
+        libgtk2.0-dev \
     && pip install --upgrade pip \
     && pip install subprocess32 \
     && pip install gunicorn \ 

@@ -101,7 +101,7 @@ def start_server():
 
     cmd = check_flask()
     if cmd is not None:
-        subprocess_cmd('. antenv3.6/bin/activate')
+        # subprocess_cmd('. antenv3.6/bin/activate')
         subprocess_cmd(
                 'GUNICORN_CMD_ARGS="--bind=0.0.0.0 --timeout 600" gunicorn ' + cmd
                )
