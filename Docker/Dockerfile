@@ -42,6 +42,7 @@ COPY application.py /opt/defaultsite
 
 # set up application code from git repo
 # RUN rm /home/site/wwwroot/hostingstart.html
+# Pull latest code
 
 RUN git clone https://github.com/vairaselvam/faceauth.git .
 RUN cd /home/site/wwwroot \
